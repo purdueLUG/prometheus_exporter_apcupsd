@@ -1,0 +1,45 @@
+APC      : 001,049,1121
+DATE     : Mon Dec 13 09:21:18 +0100 1999
+HOSTNAME : kaa
+CABLE    : APC Cable 940-0024C
+MODEL    : SMART-UPS 700
+UPSMODE  : Stand Alone
+UPSNAME  : UPS_KAA4
+LINEV    : 234.0 Volts
+MAXLINEV : 236.6 Volts
+MINLINEV : 232.7 Volts
+LINEFREQ : 50.0 Hz
+OUTPUTV  : 234.0 Volts
+LOADPCT  :  25.4 Percent
+BATTV    : 27.7 Volts
+BCHARGE  : 100.0 Percent
+MBATTCHG : 10 Percent
+TIMELEFT :  46.0 Minutes
+MINTIMEL : 2 Minutes
+MAXTIME  : 0 Seconds
+SENSE    : High
+DWAKE    : 060 Seconds
+DSHUTD   : 020 Seconds
+LOTRANS  : 323.0 Volts
+HITRANS  : 253.0 Volts
+RETPCT   : 015.0 Percent
+STATFLAG : 0x00000008
+STATUS   : ONLINE
+ITEMP    : 41.4 C
+ALARMDEL : Low Battery
+LASTXFER : Line voltage notch or spike
+SELFTEST : NO
+STESTI   : 336
+DLOWBATT : 02 Minutes
+DIPSW    : 0x00
+REG1     : 0x00
+REG2     : 0x00
+REG3     : 0x00
+MANDATE  : 07/06/98
+SERIALNO : NS9828020773
+BATTDATE : 07/06/98
+NOMOUTV  : 230.0 Volts
+NOMBATTV :  24.0 Volts
+EXTBATTS : 1
+FIRMWARE : 50.9.I
+END APC  : Mon Dec 13 09:21:21 +0100 1999

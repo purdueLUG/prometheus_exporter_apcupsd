@@ -1,0 +1,23 @@
+APC      : 001,049,0937
+DATE     : Sun Sep 17 20:41:37 -0700 2000
+HOSTNAME : broken-machine
+CABLE    : Custom Cable Smart
+MODEL    : BACK-UPS PRO 1000
+UPSMODE  : Stand Alone
+UPSNAME  : N/A
+STATUS   : ONLINE
+MBATTCHG : 15 Percent
+MINTIMEL : 3 Minutes
+MAXTIME  : 180 Seconds
+SENSE    : N/A
+ALARMDEL : N/A
+LASTXFER : Automatic or explicit SelfTest
+SELFTEST : NO
+STATFLAG : 0x0000008
+REG1     : 0x00
+REG2     : 0x00
+REG3     : 0x00
+MANDATE  : N/A
+SERIALNO : QB1234123412
+FIRMWARE : 13.J.D
+END APC  : Sun Sep 17 20:41:37 -0700 2000

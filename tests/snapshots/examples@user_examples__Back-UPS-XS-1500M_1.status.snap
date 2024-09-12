@@ -1,0 +1,127 @@
+---
+source: src/main.rs
+expression: render_metrics(&mut test_data)?
+---
+# HELP apcupsd_info Metadata for apcupsd.
+# TYPE apcupsd_info gauge
+apcupsd_info{ups_name="Test-Host",hostname="Test-Host",version="3.14.14 (31 May 2016) debian",cable="USB Cable",driver="USB UPS Driver",ups_mode="Stand Alone",model="Back-UPS XS 1500M",sensitivity="Medium",alarm_delay="No alarm",last_transfer_reason="No transfers since turnon",last_self_test_result="NO",serial_number="0B2412L30199",firmware_version="947.d13 .D USB FW:d"} 1
+# HELP apcupsd_last_update_timestamp_seconds Date and time of last update from UPS.
+# TYPE apcupsd_last_update_timestamp_seconds gauge
+apcupsd_last_update_timestamp_seconds{ups_name="Test-Host"} 1726684312
+# HELP apcupsd_start_timestamp_seconds Date and time apcupsd was started.
+# TYPE apcupsd_start_timestamp_seconds gauge
+apcupsd_start_timestamp_seconds{ups_name="Test-Host"} 1726153752
+# HELP apcupsd_line_volts Current input line voltage.
+# TYPE apcupsd_line_volts gauge
+apcupsd_line_volts{ups_name="Test-Host"} 122
+# HELP apcupsd_ups_load_percent Percentage of UPS load capacity used.
+# TYPE apcupsd_ups_load_percent gauge
+apcupsd_ups_load_percent{ups_name="Test-Host"} 0.16
+# HELP apcupsd_battery_charge_percent Current battery capacity charge percentage.
+# TYPE apcupsd_battery_charge_percent gauge
+apcupsd_battery_charge_percent{ups_name="Test-Host"} 1
+# HELP apcupsd_battery_time_left_seconds Remaining runtime left on battery as estimated by the UPS.
+# TYPE apcupsd_battery_time_left_seconds gauge
+apcupsd_battery_time_left_seconds{ups_name="Test-Host"} 2466
+# HELP apcupsd_battery_charge_required_for_shutdown_percent Min battery charge % (BCHARGE) required for system shutdown.
+# TYPE apcupsd_battery_charge_required_for_shutdown_percent gauge
+apcupsd_battery_charge_required_for_shutdown_percent{ups_name="Test-Host"} 0.05
+# HELP apcupsd_battery_runtime_required_for_shutdown_seconds Min battery runtime required for system shutdown.
+# TYPE apcupsd_battery_runtime_required_for_shutdown_seconds gauge
+apcupsd_battery_runtime_required_for_shutdown_seconds{ups_name="Test-Host"} 180
+# HELP apcupsd_battery_runtime_trigger_shutdown_seconds Max battery runtime after which system is shutdown.
+# TYPE apcupsd_battery_runtime_trigger_shutdown_seconds gauge
+apcupsd_battery_runtime_trigger_shutdown_seconds{ups_name="Test-Host"} 0
+# HELP apcupsd_low_transfer_voltage Input line voltage below which UPS will switch to battery.
+# TYPE apcupsd_low_transfer_voltage gauge
+apcupsd_low_transfer_voltage{ups_name="Test-Host"} 88
+# HELP apcupsd_high_transfer_voltage Input line voltage above which UPS will switch to battery.
+# TYPE apcupsd_high_transfer_voltage gauge
+apcupsd_high_transfer_voltage{ups_name="Test-Host"} 139
+# HELP apcupsd_battery_volts Current battery voltage.
+# TYPE apcupsd_battery_volts gauge
+apcupsd_battery_volts{ups_name="Test-Host"} 27.3
+# HELP apcupsd_battery_number_transfers_total Number of transfers to battery since apcupsd startup.
+# TYPE apcupsd_battery_number_transfers_total counter
+apcupsd_battery_number_transfers_total{ups_name="Test-Host"} 0
+# HELP apcupsd_battery_time_on_seconds Seconds currently on battery.
+# TYPE apcupsd_battery_time_on_seconds gauge
+apcupsd_battery_time_on_seconds{ups_name="Test-Host"} 0
+# HELP apcupsd_battery_cumulative_time_on_seconds_total Cumulative seconds on battery since apcupsd startup.
+# TYPE apcupsd_battery_cumulative_time_on_seconds_total gauge
+apcupsd_battery_cumulative_time_on_seconds_total{ups_name="Test-Host"} 0
+# HELP apcupsd_status_calibration Runtime calibration occurring.
+# TYPE apcupsd_status_calibration gauge
+apcupsd_status_calibration{ups_name="Test-Host"} 0
+# HELP apcupsd_status_trim SmartTrim.
+# TYPE apcupsd_status_trim gauge
+apcupsd_status_trim{ups_name="Test-Host"} 0
+# HELP apcupsd_status_boost SmartBoost.
+# TYPE apcupsd_status_boost gauge
+apcupsd_status_boost{ups_name="Test-Host"} 0
+# HELP apcupsd_status_on_line On line.
+# TYPE apcupsd_status_on_line gauge
+apcupsd_status_on_line{ups_name="Test-Host"} 1
+# HELP apcupsd_status_on_battery On battery.
+# TYPE apcupsd_status_on_battery gauge
+apcupsd_status_on_battery{ups_name="Test-Host"} 0
+# HELP apcupsd_status_overloaded_output Overloaded output.
+# TYPE apcupsd_status_overloaded_output gauge
+apcupsd_status_overloaded_output{ups_name="Test-Host"} 0
+# HELP apcupsd_status_battery_low Battery low.
+# TYPE apcupsd_status_battery_low gauge
+apcupsd_status_battery_low{ups_name="Test-Host"} 0
+# HELP apcupsd_status_replace_battery Replace battery.
+# TYPE apcupsd_status_replace_battery gauge
+apcupsd_status_replace_battery{ups_name="Test-Host"} 0
+# HELP apcupsd_status_communication_lost Communications with UPS lost.
+# TYPE apcupsd_status_communication_lost gauge
+apcupsd_status_communication_lost{ups_name="Test-Host"} 0
+# HELP apcupsd_status_shutdown_in_progress Shutdown in progress.
+# TYPE apcupsd_status_shutdown_in_progress gauge
+apcupsd_status_shutdown_in_progress{ups_name="Test-Host"} 0
+# HELP apcupsd_status_slave Set if this is a slave.
+# TYPE apcupsd_status_slave gauge
+apcupsd_status_slave{ups_name="Test-Host"} 0
+# HELP apcupsd_status_slave_down Slave not responding.
+# TYPE apcupsd_status_slave_down gauge
+apcupsd_status_slave_down{ups_name="Test-Host"} 0
+# HELP apcupsd_status_on_battery_message_sent Set when UPS_ONBATT message is sent.
+# TYPE apcupsd_status_on_battery_message_sent gauge
+apcupsd_status_on_battery_message_sent{ups_name="Test-Host"} 0
+# HELP apcupsd_status_fast_poll Set on power failure to poll faster.
+# TYPE apcupsd_status_fast_poll gauge
+apcupsd_status_fast_poll{ups_name="Test-Host"} 0
+# HELP apcupsd_status_shutdown_load Set when BatLoad <= percent.
+# TYPE apcupsd_status_shutdown_load gauge
+apcupsd_status_shutdown_load{ups_name="Test-Host"} 0
+# HELP apcupsd_status_shutdown_time Set when time on batts > maxtime.
+# TYPE apcupsd_status_shutdown_time gauge
+apcupsd_status_shutdown_time{ups_name="Test-Host"} 0
+# HELP apcupsd_status_shutdown_time_left Set when TimeLeft <= runtime.
+# TYPE apcupsd_status_shutdown_time_left gauge
+apcupsd_status_shutdown_time_left{ups_name="Test-Host"} 0
+# HELP apcupsd_status_emergency_shutdown Set when battery power has failed.
+# TYPE apcupsd_status_emergency_shutdown gauge
+apcupsd_status_emergency_shutdown{ups_name="Test-Host"} 0
+# HELP apcupsd_status_remote_shutdown Set when remote shutdown.
+# TYPE apcupsd_status_remote_shutdown gauge
+apcupsd_status_remote_shutdown{ups_name="Test-Host"} 0
+# HELP apcupsd_status_plugged_in Set if computer is plugged into UPS.
+# TYPE apcupsd_status_plugged_in gauge
+apcupsd_status_plugged_in{ups_name="Test-Host"} 1
+# HELP apcupsd_status_battery_present Indicates if battery is connected.
+# TYPE apcupsd_status_battery_present gauge
+apcupsd_status_battery_present{ups_name="Test-Host"} 1
+# HELP apcupsd_last_battery_replacement_timestamp_seconds Date battery last replaced.
+# TYPE apcupsd_last_battery_replacement_timestamp_seconds gauge
+apcupsd_last_battery_replacement_timestamp_seconds{ups_name="Test-Host"} 1710979200
+# HELP apcupsd_line_nominal_volts Nominal AC input line voltage.
+# TYPE apcupsd_line_nominal_volts gauge
+apcupsd_line_nominal_volts{ups_name="Test-Host"} 120
+# HELP apcupsd_nominal_battery_volts Nominal battery voltage.
+# TYPE apcupsd_nominal_battery_volts gauge
+apcupsd_nominal_battery_volts{ups_name="Test-Host"} 24
+# HELP apcupsd_nominal_power_watts Nominal power output in watts.
+# TYPE apcupsd_nominal_power_watts gauge
+apcupsd_nominal_power_watts{ups_name="Test-Host"} 900

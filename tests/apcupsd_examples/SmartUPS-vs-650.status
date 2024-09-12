@@ -1,0 +1,24 @@
+APC      : 001,052,0981
+DATE     : Tue Dec 14 20:43:59 +0100 1999
+HOSTNAME : azuth
+CABLE    : Custom Cable Smart
+MODEL    : Smart-UPS v/s 650
+UPSMODE  : Stand Alone
+UPSNAME  : N/A
+MBATTCHG : 5 Percent
+MINTIMEL : 3 Minutes
+MAXTIME  : 0 Seconds
+SENSE    : N/A
+STATFLAG : 0x00000008
+STATUS   : ONLINE
+ALARMDEL : N/A
+LASTXFER : Line voltage notch or spike
+SELFTEST : NO
+STESTI   : N/A
+REG1     : 0x00
+REG2     : 0x00
+REG3     : 0x00
+MANDATE  : N/A
+SERIALNO : gs9734969448
+FIRMWARE : 62.J.I
+END APC  : Tue Dec 14 20:44:00 +0100 1999

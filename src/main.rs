@@ -1,5 +1,6 @@
 use std::{
 	collections::HashMap,
+	fs,
 	net::SocketAddr,
 	ops::BitAnd,
 	sync::Arc,
@@ -10,35 +11,72 @@ use apcaccess::{APCAccess, APCAccessConfig};
 use chrono::{DateTime, NaiveDate, NaiveTime};
 use num::Unsigned;
 use prometheus_exporter_base::{
-	prelude::{Authorization, ServerOptions},
+	prelude::{Authorization, ServerOptions, TlsOptions},
 	render_prometheus, MetricType, PrometheusInstance, PrometheusMetric,
 };
+use serde::Deserialize;
 use thiserror::Error;
 use tokio::{sync::Mutex, task::spawn_blocking};
 
 mod apcupsd_bitmasks;
 
+const CONFIG_PATH: &str = "/etc/prometheus/apcupsd_exporter_config.yaml";
+
 #[tokio::main]
-async fn main() {
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+	let server_options = (|| -> Result<ApcupsdExporterOptions, Box<dyn std::error::Error>> {
+		if fs::exists(CONFIG_PATH)? {
+			Ok(serde_ignored::deserialize(
+				serde_yaml::Deserializer::from_reader(fs::File::open(CONFIG_PATH)?),
+				|path| eprintln!("Ignoring unknown configuration key {path}"),
+			)?)
+		} else {
+			Ok(Default::default())
+		}
+	})()?;
+
 	let mut apc = APCThrottledAccess::new(Default::default(), Duration::from_secs(5));
 
-	render_prometheus(
-		ServerOptions {
-			addr: SocketAddr::new([0, 0, 0, 0].into(), 9175),
-			authorization: Authorization::None,
-		},
-		(),
-		|_request, _| async move {
-			let mut data = apc.fetch().await.map_err(|_| "error fetching data from apcupsd")?;
+	render_prometheus(server_options.into(), (), |_request, _| async move {
+		let mut data = apc.fetch().await.map_err(|_| "error fetching data from apcupsd")?;
 
-			println!("{data:#?}");
+		let rendered_result = render_metrics(&mut data);
 
-			let rendered_result = render_metrics(&mut data);
-
-			Ok(rendered_result?)
-		},
-	)
+		Ok(rendered_result?)
+	})
 	.await;
+
+	Ok(())
+}
+
+#[derive(Deserialize)]
+#[serde(default)]
+struct ApcupsdExporterOptions {
+	pub address: SocketAddr,
+	#[serde(default)]
+	pub authorization: Authorization,
+	#[serde(default)]
+	pub tls_options: Option<TlsOptions>,
+}
+
+impl Default for ApcupsdExporterOptions {
+	fn default() -> Self {
+		ApcupsdExporterOptions {
+			address: SocketAddr::new([127, 0, 0, 1].into(), 9175),
+			authorization: Default::default(),
+			tls_options: Default::default(),
+		}
+	}
+}
+
+impl From<ApcupsdExporterOptions> for ServerOptions {
+	fn from(val: ApcupsdExporterOptions) -> Self {
+		ServerOptions {
+			addr: val.address,
+			authorization: val.authorization,
+			tls_options: val.tls_options,
+		}
+	}
 }
 
 fn render_metrics(apcupsd_data: &mut HashMap<String, String>) -> Result<String, RenderMetricsError> {

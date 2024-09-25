@@ -1,0 +1,21 @@
+on:
+  push:
+    tags:
+     - 'v*'
+name: Build release
+
+env:
+  RUSTFLAGS: "-Dwarnings"
+
+jobs:
+  build_release:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build release
+        run: cargo build --release
+      - name: Archive build
+        uses: actions/upload-artifact@v4
+        with:
+          name: prometheus_apcupsd_exporter_${{ github.ref_name }}
+          path: target/release/prometheus_apcupsd_exporter

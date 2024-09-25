@@ -822,6 +822,7 @@ fn parse_metric(value: String, parse_config: MetricParseConfig) -> Result<Option
 	}
 }
 
+#[allow(clippy::enum_variant_names)]
 #[derive(Error, Debug)]
 enum ParseMetricError {
 	#[error("invalid timestamp \"{0}\" {1}")]

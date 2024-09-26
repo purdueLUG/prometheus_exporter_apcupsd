@@ -1,154 +1,154 @@
 ---
 source: src/main.rs
-expression: render_metrics(&mut test_data)?
+expression: render_metrics(test_data)?
 ---
 # HELP apcupsd_info Metadata for apcupsd.
 # TYPE apcupsd_info gauge
-apcupsd_info{ups_name="N/A",hostname="broken-machine",cable="Custom Cable Smart",ups_mode="Stand Alone",model="BACK-UPS PRO 1000",sensitivity="N/A",alarm_delay="N/A",last_transfer_reason="Automatic or explicit SelfTest",last_self_test_result="NO",manufacture_date="N/A",serial_number="QB1234123412",firmware_version="13.J.D"} 1
+apcupsd_info{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412",hostname="broken-machine",cable="Custom Cable Smart",ups_mode="Stand Alone",sensitivity="N/A",alarm_delay="N/A",last_transfer_reason="Automatic or explicit SelfTest",last_self_test_result="NO",manufacture_date="N/A",firmware_version="13.J.D"} 1
 # HELP apcupsd_last_update_timestamp_seconds Date and time of last update from UPS.
 # TYPE apcupsd_last_update_timestamp_seconds gauge
-apcupsd_last_update_timestamp_seconds{ups_name="N/A"} 969248497
+apcupsd_last_update_timestamp_seconds{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 969248497
 # HELP apcupsd_battery_charge_required_for_shutdown_percent Min battery charge % (BCHARGE) required for system shutdown.
 # TYPE apcupsd_battery_charge_required_for_shutdown_percent gauge
-apcupsd_battery_charge_required_for_shutdown_percent{ups_name="N/A"} 0.15
+apcupsd_battery_charge_required_for_shutdown_percent{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0.15
 # HELP apcupsd_battery_runtime_required_for_shutdown_seconds Min battery runtime required for system shutdown.
 # TYPE apcupsd_battery_runtime_required_for_shutdown_seconds gauge
-apcupsd_battery_runtime_required_for_shutdown_seconds{ups_name="N/A"} 180
+apcupsd_battery_runtime_required_for_shutdown_seconds{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 180
 # HELP apcupsd_battery_runtime_trigger_shutdown_seconds Max battery runtime after which system is shutdown.
 # TYPE apcupsd_battery_runtime_trigger_shutdown_seconds gauge
-apcupsd_battery_runtime_trigger_shutdown_seconds{ups_name="N/A"} 180
+apcupsd_battery_runtime_trigger_shutdown_seconds{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 180
 # HELP apcupsd_status_calibration Runtime calibration occurring.
 # TYPE apcupsd_status_calibration gauge
-apcupsd_status_calibration{ups_name="N/A"} 0
+apcupsd_status_calibration{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_trim SmartTrim.
 # TYPE apcupsd_status_trim gauge
-apcupsd_status_trim{ups_name="N/A"} 0
+apcupsd_status_trim{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_boost SmartBoost.
 # TYPE apcupsd_status_boost gauge
-apcupsd_status_boost{ups_name="N/A"} 0
+apcupsd_status_boost{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_on_line On line.
 # TYPE apcupsd_status_on_line gauge
-apcupsd_status_on_line{ups_name="N/A"} 1
+apcupsd_status_on_line{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 1
 # HELP apcupsd_status_on_battery On battery.
 # TYPE apcupsd_status_on_battery gauge
-apcupsd_status_on_battery{ups_name="N/A"} 0
+apcupsd_status_on_battery{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_overloaded_output Overloaded output.
 # TYPE apcupsd_status_overloaded_output gauge
-apcupsd_status_overloaded_output{ups_name="N/A"} 0
+apcupsd_status_overloaded_output{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_battery_low Battery low.
 # TYPE apcupsd_status_battery_low gauge
-apcupsd_status_battery_low{ups_name="N/A"} 0
+apcupsd_status_battery_low{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_replace_battery Replace battery.
 # TYPE apcupsd_status_replace_battery gauge
-apcupsd_status_replace_battery{ups_name="N/A"} 0
+apcupsd_status_replace_battery{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_communication_lost Communications with UPS lost.
 # TYPE apcupsd_status_communication_lost gauge
-apcupsd_status_communication_lost{ups_name="N/A"} 0
+apcupsd_status_communication_lost{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_shutdown_in_progress Shutdown in progress.
 # TYPE apcupsd_status_shutdown_in_progress gauge
-apcupsd_status_shutdown_in_progress{ups_name="N/A"} 0
+apcupsd_status_shutdown_in_progress{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_slave Set if this is a slave.
 # TYPE apcupsd_status_slave gauge
-apcupsd_status_slave{ups_name="N/A"} 0
+apcupsd_status_slave{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_slave_down Slave not responding.
 # TYPE apcupsd_status_slave_down gauge
-apcupsd_status_slave_down{ups_name="N/A"} 0
+apcupsd_status_slave_down{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_on_battery_message_sent Set when UPS_ONBATT message is sent.
 # TYPE apcupsd_status_on_battery_message_sent gauge
-apcupsd_status_on_battery_message_sent{ups_name="N/A"} 0
+apcupsd_status_on_battery_message_sent{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_fast_poll Set on power failure to poll faster.
 # TYPE apcupsd_status_fast_poll gauge
-apcupsd_status_fast_poll{ups_name="N/A"} 0
+apcupsd_status_fast_poll{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_shutdown_load Set when BatLoad <= percent.
 # TYPE apcupsd_status_shutdown_load gauge
-apcupsd_status_shutdown_load{ups_name="N/A"} 0
+apcupsd_status_shutdown_load{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_shutdown_time Set when time on batts > maxtime.
 # TYPE apcupsd_status_shutdown_time gauge
-apcupsd_status_shutdown_time{ups_name="N/A"} 0
+apcupsd_status_shutdown_time{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_shutdown_time_left Set when TimeLeft <= runtime.
 # TYPE apcupsd_status_shutdown_time_left gauge
-apcupsd_status_shutdown_time_left{ups_name="N/A"} 0
+apcupsd_status_shutdown_time_left{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_emergency_shutdown Set when battery power has failed.
 # TYPE apcupsd_status_emergency_shutdown gauge
-apcupsd_status_emergency_shutdown{ups_name="N/A"} 0
+apcupsd_status_emergency_shutdown{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_remote_shutdown Set when remote shutdown.
 # TYPE apcupsd_status_remote_shutdown gauge
-apcupsd_status_remote_shutdown{ups_name="N/A"} 0
+apcupsd_status_remote_shutdown{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_plugged_in Set if computer is plugged into UPS.
 # TYPE apcupsd_status_plugged_in gauge
-apcupsd_status_plugged_in{ups_name="N/A"} 0
+apcupsd_status_plugged_in{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_battery_present Indicates if battery is connected.
 # TYPE apcupsd_status_battery_present gauge
-apcupsd_status_battery_present{ups_name="N/A"} 0
+apcupsd_status_battery_present{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_wakeup_mode In wakeup mode (typically lasts < 2s).
 # TYPE apcupsd_status_wakeup_mode gauge
-apcupsd_status_wakeup_mode{ups_name="N/A"} 0
+apcupsd_status_wakeup_mode{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_bypass_mode_from_internal_fault In bypass mode due to internal fault.
 # TYPE apcupsd_status_bypass_mode_from_internal_fault gauge
-apcupsd_status_bypass_mode_from_internal_fault{ups_name="N/A"} 0
+apcupsd_status_bypass_mode_from_internal_fault{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_entering_bypass_mode_from_command Going to bypass mode due to command.
 # TYPE apcupsd_status_entering_bypass_mode_from_command gauge
-apcupsd_status_entering_bypass_mode_from_command{ups_name="N/A"} 0
+apcupsd_status_entering_bypass_mode_from_command{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_in_bypass_mode_from_command In bypass mode due to command.
 # TYPE apcupsd_status_in_bypass_mode_from_command gauge
-apcupsd_status_in_bypass_mode_from_command{ups_name="N/A"} 0
+apcupsd_status_in_bypass_mode_from_command{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_leaving_bypass_mode Returning from bypass mode.
 # TYPE apcupsd_status_leaving_bypass_mode gauge
-apcupsd_status_leaving_bypass_mode{ups_name="N/A"} 0
+apcupsd_status_leaving_bypass_mode{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_in_bypass_mode_from_manual_control In bypass mode due to manual bypass control.
 # TYPE apcupsd_status_in_bypass_mode_from_manual_control gauge
-apcupsd_status_in_bypass_mode_from_manual_control{ups_name="N/A"} 0
+apcupsd_status_in_bypass_mode_from_manual_control{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_ready_power_load_on_command Ready to power load on user command.
 # TYPE apcupsd_status_ready_power_load_on_command gauge
-apcupsd_status_ready_power_load_on_command{ups_name="N/A"} 0
+apcupsd_status_ready_power_load_on_command{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_ready_power_load_on_command_or_line Ready to power load on user command or return of line power.
 # TYPE apcupsd_status_ready_power_load_on_command_or_line gauge
-apcupsd_status_ready_power_load_on_command_or_line{ups_name="N/A"} 0
+apcupsd_status_ready_power_load_on_command_or_line{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_bypass_mode_from_electronics_fan_failure Fan failure in electronics, UPS in bypass.
 # TYPE apcupsd_status_bypass_mode_from_electronics_fan_failure gauge
-apcupsd_status_bypass_mode_from_electronics_fan_failure{ups_name="N/A"} 0
+apcupsd_status_bypass_mode_from_electronics_fan_failure{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_isolation_unit_fan_failure Fan failure in isolation unit.
 # TYPE apcupsd_status_isolation_unit_fan_failure gauge
-apcupsd_status_isolation_unit_fan_failure{ups_name="N/A"} 0
+apcupsd_status_isolation_unit_fan_failure{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_bypass_supply_failure Bypass supply failure.
 # TYPE apcupsd_status_bypass_supply_failure gauge
-apcupsd_status_bypass_supply_failure{ups_name="N/A"} 0
+apcupsd_status_bypass_supply_failure{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_bypass_mode_from_output_voltage_select_failure Output voltage select failure, UPS in bypass.
 # TYPE apcupsd_status_bypass_mode_from_output_voltage_select_failure gauge
-apcupsd_status_bypass_mode_from_output_voltage_select_failure{ups_name="N/A"} 0
+apcupsd_status_bypass_mode_from_output_voltage_select_failure{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_bypass_mode_from_dc_imbalance DC imbalance, UPS in bypass.
 # TYPE apcupsd_status_bypass_mode_from_dc_imbalance gauge
-apcupsd_status_bypass_mode_from_dc_imbalance{ups_name="N/A"} 0
+apcupsd_status_bypass_mode_from_dc_imbalance{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_battery_disconnected Battery is disconnected.
 # TYPE apcupsd_status_battery_disconnected gauge
-apcupsd_status_battery_disconnected{ups_name="N/A"} 0
+apcupsd_status_battery_disconnected{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_relay_fault_smarttrim_or_smartboost Relay fault in SmartTrim or SmartBoost.
 # TYPE apcupsd_status_relay_fault_smarttrim_or_smartboost gauge
-apcupsd_status_relay_fault_smarttrim_or_smartboost{ups_name="N/A"} 0
+apcupsd_status_relay_fault_smarttrim_or_smartboost{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_bad_output_voltage Bad output voltage.
 # TYPE apcupsd_status_bad_output_voltage gauge
-apcupsd_status_bad_output_voltage{ups_name="N/A"} 0
+apcupsd_status_bad_output_voltage{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_output_unpowered_from_low_battery_shutdown Output unpowered due to shutdown by low battery.
 # TYPE apcupsd_status_output_unpowered_from_low_battery_shutdown gauge
-apcupsd_status_output_unpowered_from_low_battery_shutdown{ups_name="N/A"} 0
+apcupsd_status_output_unpowered_from_low_battery_shutdown{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_cannot_transfer_to_battery_due_to_overload Unable to transfer to battery due to overload.
 # TYPE apcupsd_status_cannot_transfer_to_battery_due_to_overload gauge
-apcupsd_status_cannot_transfer_to_battery_due_to_overload{ups_name="N/A"} 0
+apcupsd_status_cannot_transfer_to_battery_due_to_overload{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_ups_off_from_main_relay_failure Main relay malfunction - UPS turned off.
 # TYPE apcupsd_status_ups_off_from_main_relay_failure gauge
-apcupsd_status_ups_off_from_main_relay_failure{ups_name="N/A"} 0
+apcupsd_status_ups_off_from_main_relay_failure{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_sleep_mode_from_command In sleep mode from @ command (maybe others).
 # TYPE apcupsd_status_sleep_mode_from_command gauge
-apcupsd_status_sleep_mode_from_command{ups_name="N/A"} 0
+apcupsd_status_sleep_mode_from_command{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_shutdown_mode_from_command In shutdown mode from S command.
 # TYPE apcupsd_status_shutdown_mode_from_command gauge
-apcupsd_status_shutdown_mode_from_command{ups_name="N/A"} 0
+apcupsd_status_shutdown_mode_from_command{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_battery_charger_failure Battery charger failure.
 # TYPE apcupsd_status_battery_charger_failure gauge
-apcupsd_status_battery_charger_failure{ups_name="N/A"} 0
+apcupsd_status_battery_charger_failure{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_bypass_relay_failure Bypass relay malfunction.
 # TYPE apcupsd_status_bypass_relay_failure gauge
-apcupsd_status_bypass_relay_failure{ups_name="N/A"} 0
+apcupsd_status_bypass_relay_failure{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0
 # HELP apcupsd_status_operating_temperature_exceeded Normal operating temperature exceeded.
 # TYPE apcupsd_status_operating_temperature_exceeded gauge
-apcupsd_status_operating_temperature_exceeded{ups_name="N/A"} 0
+apcupsd_status_operating_temperature_exceeded{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB1234123412"} 0

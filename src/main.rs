@@ -9,10 +9,10 @@ use std::{
 
 use apcaccess::{APCAccess, APCAccessConfig};
 use chrono::{DateTime, NaiveDate, NaiveTime};
-use num::Unsigned;
+use num::{Num, Unsigned};
 use prometheus_exporter_base::{
 	prelude::{Authorization, ServerOptions, TlsOptions},
-	render_prometheus, MetricType, PrometheusInstance, PrometheusMetric,
+	render_prometheus, MetricType, MissingValue, PrometheusInstance, PrometheusMetric,
 };
 use serde::Deserialize;
 use thiserror::Error;
@@ -38,9 +38,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	let mut apc = APCThrottledAccess::new(Default::default(), Duration::from_secs(5));
 
 	render_prometheus(server_options.into(), (), |_request, _| async move {
-		let mut data = apc.fetch().await.map_err(|_| "error fetching data from apcupsd")?;
+		let data = apc.fetch().await.map_err(|_| "error fetching data from apcupsd")?;
 
-		let rendered_result = render_metrics(&mut data);
+		let rendered_result = render_metrics(data);
 
 		Ok(rendered_result?)
 	})
@@ -79,9 +79,29 @@ impl From<ApcupsdExporterOptions> for ServerOptions {
 	}
 }
 
-fn render_metrics(apcupsd_data: &mut HashMap<String, String>) -> Result<String, RenderMetricsError> {
+fn prometheus_instance_with_labels<N: Num + std::fmt::Display + std::fmt::Debug>(
+	labels: &Vec<(String, String)>,
+) -> PrometheusInstance<'_, N, MissingValue> {
+	let mut instance = PrometheusInstance::new();
+	for (key, val) in labels {
+		instance = instance.with_label(key.as_ref(), val.as_ref());
+	}
+	instance
+}
+
+fn render_metrics(mut apcupsd_data: HashMap<String, String>) -> Result<String, RenderMetricsError> {
 	let mut rendered = String::new();
-	let ups_name = apcupsd_data.remove("UPSNAME").ok_or(RenderMetricsError::MissingKey("UPSNAME".to_string()))?;
+
+	let mut labels = Vec::new();
+	let label_keys = [("UPSNAME", "ups_name"), ("MODEL", "model"), ("SERIALNO", "serial_number")];
+	for (key, label) in label_keys {
+		if let Some(val) = apcupsd_data.remove(key) {
+			labels.push((
+				label.to_string(),
+				val,
+			));
+		}
+	}
 
 	let info_keys = [
 		("HOSTNAME", "hostname"),
@@ -91,18 +111,16 @@ fn render_metrics(apcupsd_data: &mut HashMap<String, String>) -> Result<String, 
 		("UPSMODE", "ups_mode"),
 		("SHARE", "sharenet_name"),
 		("MASTER", "master_name"),
-		("MODEL", "model"),
 		("SENSE", "sensitivity"),
 		("ALARMDEL", "alarm_delay"),
 		("LASTXFER", "last_transfer_reason"),
 		("SELFTEST", "last_self_test_result"),
 		("STESTI", "self_test_interval"),
 		("MANDATE", "manufacture_date"),
-		("SERIALNO", "serial_number"),
 		("FIRMWARE", "firmware_version"),
 	];
 
-	let mut info = PrometheusInstance::new().with_label("ups_name", ups_name.as_str()).with_value(1);
+	let mut info = prometheus_instance_with_labels(&labels).with_value(1);
 	for (key, label) in info_keys {
 		if let Some(val) = apcupsd_data.get(key) {
 			info = info.with_label(label, val.as_str());
@@ -120,7 +138,7 @@ fn render_metrics(apcupsd_data: &mut HashMap<String, String>) -> Result<String, 
 		apcupsd_data.remove(key);
 	}
 
-	let mut renderer = MetricRenderer::new(ups_name.clone(), apcupsd_data.clone());
+	let mut renderer = MetricRenderer::new(labels, apcupsd_data);
 
 	rendered += &renderer.render_metric(
 		"DATE",
@@ -654,13 +672,13 @@ fn render_metrics(apcupsd_data: &mut HashMap<String, String>) -> Result<String, 
 }
 
 struct MetricRenderer {
-	ups_name: String,
+	labels: Vec<(String, String)>,
 	apcupsd_data: HashMap<String, String>,
 }
 
 impl MetricRenderer {
-	pub fn new(ups_name: String, apcupsd_data: HashMap<String, String>) -> Self {
-		Self { ups_name, apcupsd_data }
+	pub fn new(labels: Vec<(String, String)>, apcupsd_data: HashMap<String, String>) -> Self {
+		Self { labels, apcupsd_data }
 	}
 
 	pub fn render_metric(
@@ -677,12 +695,12 @@ impl MetricRenderer {
 				.with_help(help)
 				.with_metric_type(metric_type)
 				.build()
-				.render_and_append_instance(&PrometheusInstance::new().with_label("ups_name", self.ups_name.as_str()).with_value(
-					parse_result.map_err(|e| RenderMetricsError::ParseMetricError {
+				.render_and_append_instance(&prometheus_instance_with_labels(&self.labels).with_value(parse_result.map_err(|e| {
+					RenderMetricsError::ParseMetricError {
 						key: key.to_string(),
 						error: e,
-					})?,
-				))
+					}
+				})?))
 				.render())
 		} else {
 			Ok(String::new())
@@ -697,7 +715,7 @@ impl MetricRenderer {
 					error: ParseMetricError::InvalidHex(hex),
 				})?;
 			Ok(Some(BitfieldMetricRenderer {
-				ups_name: self.ups_name.clone(),
+				labels: self.labels.clone(),
 				bitfield,
 			}))
 		} else {
@@ -714,7 +732,7 @@ trait BitfieldType: Unsigned + BitAnd<Self, Output = Self> + PartialEq + Copy {}
 impl<T: Unsigned + BitAnd<Self, Output = Self> + PartialEq + Copy> BitfieldType for T {}
 
 struct BitfieldMetricRenderer<T: BitfieldType> {
-	ups_name: String,
+	labels: Vec<(String, String)>,
 	bitfield: T,
 }
 
@@ -725,9 +743,7 @@ impl<T: BitfieldType> BitfieldMetricRenderer<T> {
 			.with_help(help)
 			.with_metric_type(MetricType::Gauge)
 			.build()
-			.render_and_append_instance(
-				&PrometheusInstance::new().with_label("ups_name", self.ups_name.as_str()).with_value(f64::from(self.bitfield & mask != T::zero())),
-			)
+			.render_and_append_instance(&prometheus_instance_with_labels(&self.labels).with_value(f64::from(self.bitfield & mask != T::zero())))
 			.render()
 	}
 }
@@ -736,8 +752,6 @@ impl<T: BitfieldType> BitfieldMetricRenderer<T> {
 enum RenderMetricsError {
 	#[error("{key}: {error}")]
 	ParseMetricError { key: String, error: ParseMetricError },
-	#[error("missing key {0}")]
-	MissingKey(String),
 }
 
 struct MetricParseConfig {
@@ -857,7 +871,6 @@ struct APCThrottledAccess {
 	inner: Arc<Mutex<APCThrottledAccessInner>>,
 }
 
-#[derive(Clone)]
 struct APCThrottledAccessInner {
 	apc_access: APCAccess,
 	wait_time: Duration,
@@ -904,7 +917,7 @@ mod tests {
 
 	#[rstest]
 	fn test_examples(#[files("tests/*_examples/*.status")] path: PathBuf) -> Result<(), Box<dyn std::error::Error>> {
-		let mut test_data = BufReader::new(File::open(path.clone())?)
+		let test_data = BufReader::new(File::open(path.clone())?)
 			.lines()
 			.map(|lr| lr.map(|l| l.split_once(":").ok_or("invalid test file").map(|(k, v)| (k.trim().to_string(), v.trim().to_string()))))
 			.collect::<Result<Result<HashMap<_, _>, _>, _>>()??;
@@ -914,7 +927,7 @@ mod tests {
 				snapshot_path => "../tests/snapshots",
 				snapshot_suffix => (|| Some([path.parent()?.file_name()?.to_str()?, path.file_name()?.to_str()?].join("/")))().ok_or("bad filename")?
 			},
-			{ Ok::<_, RenderMetricsError>(insta::assert_snapshot!(render_metrics(&mut test_data)?)) }
+			{ Ok::<_, RenderMetricsError>(insta::assert_snapshot!(render_metrics(test_data)?)) }
 		)?;
 		Ok(())
 	}

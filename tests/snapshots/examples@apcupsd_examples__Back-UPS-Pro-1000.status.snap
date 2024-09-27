@@ -27,7 +27,7 @@ apcupsd_battery_number_transfers_total{ups_name="N/A",model="BACK-UPS PRO 1000",
 # TYPE apcupsd_battery_time_on_seconds gauge
 apcupsd_battery_time_on_seconds{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB0030120516"} 0
 # HELP apcupsd_battery_cumulative_time_on_seconds_total Cumulative seconds on battery since apcupsd startup.
-# TYPE apcupsd_battery_cumulative_time_on_seconds_total gauge
+# TYPE apcupsd_battery_cumulative_time_on_seconds_total counter
 apcupsd_battery_cumulative_time_on_seconds_total{ups_name="N/A",model="BACK-UPS PRO 1000",serial_number="QB0030120516"} 0
 # HELP apcupsd_status_calibration Runtime calibration occurring.
 # TYPE apcupsd_status_calibration gauge

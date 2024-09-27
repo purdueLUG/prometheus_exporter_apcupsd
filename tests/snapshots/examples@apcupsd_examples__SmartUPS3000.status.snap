@@ -38,9 +38,9 @@ apcupsd_min_since_startup_volts{ups_name="UPS_IDEN",model="SMART-UPS 3000"} 120.
 # HELP apcupsd_output_volts Current UPS output voltage.
 # TYPE apcupsd_output_volts gauge
 apcupsd_output_volts{ups_name="UPS_IDEN",model="SMART-UPS 3000"} 120.9
-# HELP apcupsd_internal_temp_celsius UPS internal temperature in degrees Celcius.
-# TYPE apcupsd_internal_temp_celsius gauge
-apcupsd_internal_temp_celsius{ups_name="UPS_IDEN",model="SMART-UPS 3000"} 37.3
+# HELP apcupsd_internal_temperature_celsius UPS internal temperature in degrees Celcius.
+# TYPE apcupsd_internal_temperature_celsius gauge
+apcupsd_internal_temperature_celsius{ups_name="UPS_IDEN",model="SMART-UPS 3000"} 37.3
 # HELP apcupsd_battery_volts Current battery voltage.
 # TYPE apcupsd_battery_volts gauge
 apcupsd_battery_volts{ups_name="UPS_IDEN",model="SMART-UPS 3000"} 54.5

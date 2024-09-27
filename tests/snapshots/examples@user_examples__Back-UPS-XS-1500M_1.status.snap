@@ -32,12 +32,12 @@ apcupsd_battery_runtime_required_for_shutdown_seconds{ups_name="Test-Host",model
 # HELP apcupsd_battery_runtime_trigger_shutdown_seconds Max battery runtime after which system is shutdown.
 # TYPE apcupsd_battery_runtime_trigger_shutdown_seconds gauge
 apcupsd_battery_runtime_trigger_shutdown_seconds{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 0
-# HELP apcupsd_low_transfer_voltage Input line voltage below which UPS will switch to battery.
-# TYPE apcupsd_low_transfer_voltage gauge
-apcupsd_low_transfer_voltage{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 88
-# HELP apcupsd_high_transfer_voltage Input line voltage above which UPS will switch to battery.
-# TYPE apcupsd_high_transfer_voltage gauge
-apcupsd_high_transfer_voltage{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 139
+# HELP apcupsd_transfer_low_volts Input line voltage below which UPS will switch to battery.
+# TYPE apcupsd_transfer_low_volts gauge
+apcupsd_transfer_low_volts{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 88
+# HELP apcupsd_transfer_high_volts Input line voltage above which UPS will switch to battery.
+# TYPE apcupsd_transfer_high_volts gauge
+apcupsd_transfer_high_volts{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 139
 # HELP apcupsd_battery_volts Current battery voltage.
 # TYPE apcupsd_battery_volts gauge
 apcupsd_battery_volts{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 27.3
@@ -48,7 +48,7 @@ apcupsd_battery_number_transfers_total{ups_name="Test-Host",model="Back-UPS XS 1
 # TYPE apcupsd_battery_time_on_seconds gauge
 apcupsd_battery_time_on_seconds{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 0
 # HELP apcupsd_battery_cumulative_time_on_seconds_total Cumulative seconds on battery since apcupsd startup.
-# TYPE apcupsd_battery_cumulative_time_on_seconds_total gauge
+# TYPE apcupsd_battery_cumulative_time_on_seconds_total counter
 apcupsd_battery_cumulative_time_on_seconds_total{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 0
 # HELP apcupsd_status_calibration Runtime calibration occurring.
 # TYPE apcupsd_status_calibration gauge
@@ -113,15 +113,15 @@ apcupsd_status_plugged_in{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_
 # HELP apcupsd_status_battery_present Indicates if battery is connected.
 # TYPE apcupsd_status_battery_present gauge
 apcupsd_status_battery_present{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 1
-# HELP apcupsd_last_battery_replacement_timestamp_seconds Date battery last replaced.
-# TYPE apcupsd_last_battery_replacement_timestamp_seconds gauge
-apcupsd_last_battery_replacement_timestamp_seconds{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 1710979200
+# HELP apcupsd_battery_last_replacement_timestamp_seconds Date battery last replaced.
+# TYPE apcupsd_battery_last_replacement_timestamp_seconds gauge
+apcupsd_battery_last_replacement_timestamp_seconds{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 1710979200
 # HELP apcupsd_line_nominal_volts Nominal AC input line voltage.
 # TYPE apcupsd_line_nominal_volts gauge
 apcupsd_line_nominal_volts{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 120
-# HELP apcupsd_nominal_battery_volts Nominal battery voltage.
-# TYPE apcupsd_nominal_battery_volts gauge
-apcupsd_nominal_battery_volts{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 24
+# HELP apcupsd_battery_nominal_volts Nominal battery voltage.
+# TYPE apcupsd_battery_nominal_volts gauge
+apcupsd_battery_nominal_volts{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 24
 # HELP apcupsd_nominal_power_watts Nominal power output in watts.
 # TYPE apcupsd_nominal_power_watts gauge
 apcupsd_nominal_power_watts{ups_name="Test-Host",model="Back-UPS XS 1500M",serial_number="0B2412L30199"} 900

@@ -39,7 +39,7 @@ apcupsd_last_transfer_on_battery_timestamp_seconds{ups_name="rufus.usb",model="B
 # TYPE apcupsd_battery_time_on_seconds gauge
 apcupsd_battery_time_on_seconds{ups_name="rufus.usb",model="Back-UPS 350",serial_number="BB0115017954"} 0
 # HELP apcupsd_battery_cumulative_time_on_seconds_total Cumulative seconds on battery since apcupsd startup.
-# TYPE apcupsd_battery_cumulative_time_on_seconds_total gauge
+# TYPE apcupsd_battery_cumulative_time_on_seconds_total counter
 apcupsd_battery_cumulative_time_on_seconds_total{ups_name="rufus.usb",model="Back-UPS 350",serial_number="BB0115017954"} 246
 # HELP apcupsd_last_transfer_off_battery_timestamp_seconds Date, time of last transfer off battery since apcupsd startup.
 # TYPE apcupsd_last_transfer_off_battery_timestamp_seconds gauge
@@ -107,9 +107,9 @@ apcupsd_status_plugged_in{ups_name="rufus.usb",model="Back-UPS 350",serial_numbe
 # HELP apcupsd_status_battery_present Indicates if battery is connected.
 # TYPE apcupsd_status_battery_present gauge
 apcupsd_status_battery_present{ups_name="rufus.usb",model="Back-UPS 350",serial_number="BB0115017954"} 0
-# HELP apcupsd_last_battery_replacement_timestamp_seconds Date battery last replaced.
-# TYPE apcupsd_last_battery_replacement_timestamp_seconds gauge
-apcupsd_last_battery_replacement_timestamp_seconds{ups_name="rufus.usb",model="Back-UPS 350",serial_number="BB0115017954"} 987379200
-# HELP apcupsd_nominal_battery_volts Nominal battery voltage.
-# TYPE apcupsd_nominal_battery_volts gauge
-apcupsd_nominal_battery_volts{ups_name="rufus.usb",model="Back-UPS 350",serial_number="BB0115017954"} 12
+# HELP apcupsd_battery_last_replacement_timestamp_seconds Date battery last replaced.
+# TYPE apcupsd_battery_last_replacement_timestamp_seconds gauge
+apcupsd_battery_last_replacement_timestamp_seconds{ups_name="rufus.usb",model="Back-UPS 350",serial_number="BB0115017954"} 987379200
+# HELP apcupsd_battery_nominal_volts Nominal battery voltage.
+# TYPE apcupsd_battery_nominal_volts gauge
+apcupsd_battery_nominal_volts{ups_name="rufus.usb",model="Back-UPS 350",serial_number="BB0115017954"} 12

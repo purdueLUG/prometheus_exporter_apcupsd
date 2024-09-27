@@ -44,21 +44,21 @@ apcupsd_power_on_delay_seconds{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",ser
 # HELP apcupsd_power_off_delay_seconds Delay before UPS powers down after command received.
 # TYPE apcupsd_power_off_delay_seconds gauge
 apcupsd_power_off_delay_seconds{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 20
-# HELP apcupsd_low_battery_signal_time_left_seconds Low battery signal sent when this much runtime remains.
-# TYPE apcupsd_low_battery_signal_time_left_seconds gauge
-apcupsd_low_battery_signal_time_left_seconds{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 120
-# HELP apcupsd_low_transfer_voltage Input line voltage below which UPS will switch to battery.
-# TYPE apcupsd_low_transfer_voltage gauge
-apcupsd_low_transfer_voltage{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 196
-# HELP apcupsd_high_transfer_voltage Input line voltage above which UPS will switch to battery.
-# TYPE apcupsd_high_transfer_voltage gauge
-apcupsd_high_transfer_voltage{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 253
+# HELP apcupsd_battery_low_signal_time_left_seconds Low battery signal sent when this much runtime remains.
+# TYPE apcupsd_battery_low_signal_time_left_seconds gauge
+apcupsd_battery_low_signal_time_left_seconds{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 120
+# HELP apcupsd_transfer_low_volts Input line voltage below which UPS will switch to battery.
+# TYPE apcupsd_transfer_low_volts gauge
+apcupsd_transfer_low_volts{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 196
+# HELP apcupsd_transfer_high_volts Input line voltage above which UPS will switch to battery.
+# TYPE apcupsd_transfer_high_volts gauge
+apcupsd_transfer_high_volts{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 253
 # HELP apcupsd_power_on_required_charge_percent Battery charge % required after power off to restore power.
 # TYPE apcupsd_power_on_required_charge_percent gauge
 apcupsd_power_on_required_charge_percent{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 0
-# HELP apcupsd_internal_temp_celsius UPS internal temperature in degrees Celcius.
-# TYPE apcupsd_internal_temp_celsius gauge
-apcupsd_internal_temp_celsius{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 19.3
+# HELP apcupsd_internal_temperature_celsius UPS internal temperature in degrees Celcius.
+# TYPE apcupsd_internal_temperature_celsius gauge
+apcupsd_internal_temperature_celsius{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 19.3
 # HELP apcupsd_battery_volts Current battery voltage.
 # TYPE apcupsd_battery_volts gauge
 apcupsd_battery_volts{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 55
@@ -212,15 +212,15 @@ apcupsd_status_bypass_relay_failure{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM
 # HELP apcupsd_status_operating_temperature_exceeded Normal operating temperature exceeded.
 # TYPE apcupsd_status_operating_temperature_exceeded gauge
 apcupsd_status_operating_temperature_exceeded{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 0
-# HELP apcupsd_last_battery_replacement_timestamp_seconds Date battery last replaced.
-# TYPE apcupsd_last_battery_replacement_timestamp_seconds gauge
-apcupsd_last_battery_replacement_timestamp_seconds{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 943833600
-# HELP apcupsd_nominal_battery_output_volts Nominal output voltage to supply when on battery power.
-# TYPE apcupsd_nominal_battery_output_volts gauge
-apcupsd_nominal_battery_output_volts{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 230
-# HELP apcupsd_nominal_battery_volts Nominal battery voltage.
-# TYPE apcupsd_nominal_battery_volts gauge
-apcupsd_nominal_battery_volts{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 48
+# HELP apcupsd_battery_last_replacement_timestamp_seconds Date battery last replaced.
+# TYPE apcupsd_battery_last_replacement_timestamp_seconds gauge
+apcupsd_battery_last_replacement_timestamp_seconds{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 943833600
+# HELP apcupsd_battery_nominal_output_volts Nominal output voltage to supply when on battery power.
+# TYPE apcupsd_battery_nominal_output_volts gauge
+apcupsd_battery_nominal_output_volts{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 230
+# HELP apcupsd_battery_nominal_volts Nominal battery voltage.
+# TYPE apcupsd_battery_nominal_volts gauge
+apcupsd_battery_nominal_volts{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 48
 # HELP apcupsd_external_battery_count Number of external batteries (for XL models).
 # TYPE apcupsd_external_battery_count gauge
 apcupsd_external_battery_count{ups_name="UPS_IDEN",model="SMART-UPS 5000 RM",serial_number="GS9999999999"} 0

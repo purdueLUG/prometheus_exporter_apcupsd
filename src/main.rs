@@ -258,21 +258,21 @@ fn render_metrics(mut apcupsd_data: HashMap<String, String>) -> Result<String, R
 	rendered += &renderer.render_metric(
 		"DLOWBATT",
 		MetricParseType::Duration,
-		"apcupsd_low_battery_signal_time_left_seconds",
+		"apcupsd_battery_low_signal_time_left_seconds",
 		"Low battery signal sent when this much runtime remains.",
 		MetricType::Gauge,
 	)?;
 	rendered += &renderer.render_metric(
 		"LOTRANS",
 		MetricParseType::Voltage,
-		"apcupsd_low_transfer_voltage",
+		"apcupsd_transfer_low_volts",
 		"Input line voltage below which UPS will switch to battery.",
 		MetricType::Gauge,
 	)?;
 	rendered += &renderer.render_metric(
 		"HITRANS",
 		MetricParseType::Voltage,
-		"apcupsd_high_transfer_voltage",
+		"apcupsd_transfer_high_volts",
 		"Input line voltage above which UPS will switch to battery.",
 		MetricType::Gauge,
 	)?;
@@ -286,7 +286,7 @@ fn render_metrics(mut apcupsd_data: HashMap<String, String>) -> Result<String, R
 	rendered += &renderer.render_metric(
 		"ITEMP",
 		MetricParseType::Temperature,
-		"apcupsd_internal_temp_celsius",
+		"apcupsd_internal_temperature_celsius",
 		"UPS internal temperature in degrees Celcius.",
 		MetricType::Gauge,
 	)?;
@@ -337,7 +337,7 @@ fn render_metrics(mut apcupsd_data: HashMap<String, String>) -> Result<String, R
 		MetricParseType::Duration,
 		"apcupsd_battery_cumulative_time_on_seconds_total",
 		"Cumulative seconds on battery since apcupsd startup.",
-		MetricType::Gauge,
+		MetricType::Counter,
 	)?;
 	rendered += &renderer.render_metric(
 		"XOFFBATT",
@@ -591,14 +591,14 @@ fn render_metrics(mut apcupsd_data: HashMap<String, String>) -> Result<String, R
 	rendered += &renderer.render_metric(
 		"BATTDATE",
 		MetricParseType::Date,
-		"apcupsd_last_battery_replacement_timestamp_seconds",
+		"apcupsd_battery_last_replacement_timestamp_seconds",
 		"Date battery last replaced.",
 		MetricType::Gauge,
 	)?;
 	rendered += &renderer.render_metric(
 		"NOMOUTV",
 		MetricParseType::Voltage,
-		"apcupsd_nominal_battery_output_volts",
+		"apcupsd_battery_nominal_output_volts",
 		"Nominal output voltage to supply when on battery power.",
 		MetricType::Gauge,
 	)?;
@@ -612,7 +612,7 @@ fn render_metrics(mut apcupsd_data: HashMap<String, String>) -> Result<String, R
 	rendered += &renderer.render_metric(
 		"NOMBATTV",
 		MetricParseType::Voltage,
-		"apcupsd_nominal_battery_volts",
+		"apcupsd_battery_nominal_volts",
 		"Nominal battery voltage.",
 		MetricType::Gauge,
 	)?;
@@ -640,7 +640,7 @@ fn render_metrics(mut apcupsd_data: HashMap<String, String>) -> Result<String, R
 	rendered += &renderer.render_metric(
 		"AMBTEMP",
 		MetricParseType::Temperature,
-		"apcupsd_ambient_temp_celsius",
+		"apcupsd_ambient_temperature_celsius",
 		"Ambient temperature.",
 		MetricType::Gauge,
 	)?;
@@ -654,7 +654,7 @@ fn render_metrics(mut apcupsd_data: HashMap<String, String>) -> Result<String, R
 	rendered += &renderer.render_metric(
 		"BADBATTS",
 		MetricParseType::Count,
-		"apcupsd_bad_external_battery_count",
+		"apcupsd_external_battery_bad_count",
 		"Number of bad external battery packs (for XL models).",
 		MetricType::Gauge,
 	)?;

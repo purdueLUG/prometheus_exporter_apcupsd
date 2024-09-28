@@ -1,10 +1,10 @@
 [package]
 name = "prometheus_apcupsd_exporter"
-version = "0.1.0"
+version = "0.4.0"
 edition = "2021"
 
 [dependencies]
-apcaccess = "0.1.3"
+apcaccess = { version = "0.1.3", git = "https://github.com/AndrolGenhald/apcaccess-rs" }
 chrono = "0.4.38"
 futures = "0.3.30"
 num = "0.4.3"

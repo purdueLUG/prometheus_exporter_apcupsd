@@ -35,10 +35,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 		}
 	})()?;
 
-	let mut apc = APCThrottledAccess::new(Default::default(), Duration::from_secs(5));
+	let mut apc = APCThrottledAccess::new(APCAccessConfig { timeout: Duration::from_millis(500), ..Default::default() }, Duration::from_secs(1));
 
 	render_prometheus(server_options.into(), (), |_request, _| async move {
-		let data = apc.fetch().await.map_err(|_| "error fetching data from apcupsd")?;
+		let data = apc.fetch().await.map_err(|e| format!("error fetching data from apcupsd: {e}\n"))?;
 
 		let rendered_result = render_metrics(data);
 

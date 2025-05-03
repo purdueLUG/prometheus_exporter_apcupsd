@@ -919,7 +919,6 @@ dependencies = [
  "insta",
  "num",
  "prometheus_exporter_base",
- "regex",
  "rstest",
  "serde",
  "serde_ignored",

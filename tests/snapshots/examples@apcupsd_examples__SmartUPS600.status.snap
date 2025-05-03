@@ -1,172 +1,173 @@
 ---
 source: src/main.rs
-expression: render_metrics(test_data)?
+assertion_line: 964
+expression: "render_metrics(test_data, \"ups0\".to_string())?"
 ---
 # HELP apcupsd_info Metadata for apcupsd.
 # TYPE apcupsd_info gauge
-apcupsd_info{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861",hostname="infarc",cable="APC Cable 940-0024C",ups_mode="Stand Alone",sensitivity="Medium",alarm_delay="Low Battery",last_transfer_reason="Unacceptable Utility Voltage Change",last_self_test_result="NO",self_test_interval="336",manufacture_date="03/30/95",firmware_version="N/A"} 1
+apcupsd_info{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861",hostname="infarc",cable="APC Cable 940-0024C",ups_mode="Stand Alone",sensitivity="Medium",alarm_delay="Low Battery",last_transfer_reason="Unacceptable Utility Voltage Change",last_self_test_result="NO",self_test_interval="336",manufacture_date="03/30/95",firmware_version="N/A"} 1
 # HELP apcupsd_last_update_timestamp_seconds Date and time of last update from UPS.
 # TYPE apcupsd_last_update_timestamp_seconds gauge
-apcupsd_last_update_timestamp_seconds{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 944257764
+apcupsd_last_update_timestamp_seconds{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 944257764
 # HELP apcupsd_line_volts Current input line voltage.
 # TYPE apcupsd_line_volts gauge
-apcupsd_line_volts{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 122.1
+apcupsd_line_volts{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 122.1
 # HELP apcupsd_ups_load_percent Percentage of UPS load capacity used.
 # TYPE apcupsd_ups_load_percent gauge
-apcupsd_ups_load_percent{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0.327
+apcupsd_ups_load_percent{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0.327
 # HELP apcupsd_battery_charge_percent Current battery capacity charge percentage.
 # TYPE apcupsd_battery_charge_percent gauge
-apcupsd_battery_charge_percent{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0.95
+apcupsd_battery_charge_percent{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0.95
 # HELP apcupsd_battery_time_left_seconds Remaining runtime left on battery as estimated by the UPS.
 # TYPE apcupsd_battery_time_left_seconds gauge
-apcupsd_battery_time_left_seconds{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 1140
+apcupsd_battery_time_left_seconds{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 1140
 # HELP apcupsd_battery_charge_required_for_shutdown_percent Min battery charge % (BCHARGE) required for system shutdown.
 # TYPE apcupsd_battery_charge_required_for_shutdown_percent gauge
-apcupsd_battery_charge_required_for_shutdown_percent{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0.15
+apcupsd_battery_charge_required_for_shutdown_percent{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0.15
 # HELP apcupsd_battery_runtime_required_for_shutdown_seconds Min battery runtime required for system shutdown.
 # TYPE apcupsd_battery_runtime_required_for_shutdown_seconds gauge
-apcupsd_battery_runtime_required_for_shutdown_seconds{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 180
+apcupsd_battery_runtime_required_for_shutdown_seconds{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 180
 # HELP apcupsd_max_since_startup_volts Maximum input line voltage since apcupsd startup.
 # TYPE apcupsd_max_since_startup_volts gauge
-apcupsd_max_since_startup_volts{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 123.3
+apcupsd_max_since_startup_volts{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 123.3
 # HELP apcupsd_min_since_startup_volts Minimum input line voltage since apcupsd startup.
 # TYPE apcupsd_min_since_startup_volts gauge
-apcupsd_min_since_startup_volts{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 122.1
+apcupsd_min_since_startup_volts{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 122.1
 # HELP apcupsd_output_volts Current UPS output voltage.
 # TYPE apcupsd_output_volts gauge
-apcupsd_output_volts{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 122.1
+apcupsd_output_volts{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 122.1
 # HELP apcupsd_power_on_delay_seconds Time UPS waits after power off when the power is restored.
 # TYPE apcupsd_power_on_delay_seconds gauge
-apcupsd_power_on_delay_seconds{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_power_on_delay_seconds{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_power_off_delay_seconds Delay before UPS powers down after command received.
 # TYPE apcupsd_power_off_delay_seconds gauge
-apcupsd_power_off_delay_seconds{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 20
+apcupsd_power_off_delay_seconds{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 20
 # HELP apcupsd_battery_low_signal_time_left_seconds Low battery signal sent when this much runtime remains.
 # TYPE apcupsd_battery_low_signal_time_left_seconds gauge
-apcupsd_battery_low_signal_time_left_seconds{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 300
+apcupsd_battery_low_signal_time_left_seconds{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 300
 # HELP apcupsd_transfer_low_volts Input line voltage below which UPS will switch to battery.
 # TYPE apcupsd_transfer_low_volts gauge
-apcupsd_transfer_low_volts{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 106
+apcupsd_transfer_low_volts{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 106
 # HELP apcupsd_transfer_high_volts Input line voltage above which UPS will switch to battery.
 # TYPE apcupsd_transfer_high_volts gauge
-apcupsd_transfer_high_volts{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 129
+apcupsd_transfer_high_volts{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 129
 # HELP apcupsd_power_on_required_charge_percent Battery charge % required after power off to restore power.
 # TYPE apcupsd_power_on_required_charge_percent gauge
-apcupsd_power_on_required_charge_percent{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0.1
+apcupsd_power_on_required_charge_percent{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0.1
 # HELP apcupsd_internal_temperature_celsius UPS internal temperature in degrees Celcius.
 # TYPE apcupsd_internal_temperature_celsius gauge
-apcupsd_internal_temperature_celsius{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 34.6
+apcupsd_internal_temperature_celsius{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 34.6
 # HELP apcupsd_battery_volts Current battery voltage.
 # TYPE apcupsd_battery_volts gauge
-apcupsd_battery_volts{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 26.6
+apcupsd_battery_volts{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 26.6
 # HELP apcupsd_line_frequency_hertz Current line frequency in Hertz.
 # TYPE apcupsd_line_frequency_hertz gauge
-apcupsd_line_frequency_hertz{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 60
+apcupsd_line_frequency_hertz{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 60
 # HELP apcupsd_status_calibration Runtime calibration occurring.
 # TYPE apcupsd_status_calibration gauge
-apcupsd_status_calibration{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_calibration{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_trim SmartTrim.
 # TYPE apcupsd_status_trim gauge
-apcupsd_status_trim{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_trim{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_boost SmartBoost.
 # TYPE apcupsd_status_boost gauge
-apcupsd_status_boost{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_boost{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_on_line On line.
 # TYPE apcupsd_status_on_line gauge
-apcupsd_status_on_line{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 1
+apcupsd_status_on_line{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 1
 # HELP apcupsd_status_on_battery On battery.
 # TYPE apcupsd_status_on_battery gauge
-apcupsd_status_on_battery{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_on_battery{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_overloaded_output Overloaded output.
 # TYPE apcupsd_status_overloaded_output gauge
-apcupsd_status_overloaded_output{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_overloaded_output{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_battery_low Battery low.
 # TYPE apcupsd_status_battery_low gauge
-apcupsd_status_battery_low{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_battery_low{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_replace_battery Replace battery.
 # TYPE apcupsd_status_replace_battery gauge
-apcupsd_status_replace_battery{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_replace_battery{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_communication_lost Communications with UPS lost.
 # TYPE apcupsd_status_communication_lost gauge
-apcupsd_status_communication_lost{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_communication_lost{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_shutdown_in_progress Shutdown in progress.
 # TYPE apcupsd_status_shutdown_in_progress gauge
-apcupsd_status_shutdown_in_progress{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_shutdown_in_progress{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_slave Set if this is a slave.
 # TYPE apcupsd_status_slave gauge
-apcupsd_status_slave{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_slave{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_slave_down Slave not responding.
 # TYPE apcupsd_status_slave_down gauge
-apcupsd_status_slave_down{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_slave_down{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_on_battery_message_sent Set when UPS_ONBATT message is sent.
 # TYPE apcupsd_status_on_battery_message_sent gauge
-apcupsd_status_on_battery_message_sent{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_on_battery_message_sent{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_fast_poll Set on power failure to poll faster.
 # TYPE apcupsd_status_fast_poll gauge
-apcupsd_status_fast_poll{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_fast_poll{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_shutdown_load Set when BatLoad <= percent.
 # TYPE apcupsd_status_shutdown_load gauge
-apcupsd_status_shutdown_load{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_shutdown_load{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_shutdown_time Set when time on batts > maxtime.
 # TYPE apcupsd_status_shutdown_time gauge
-apcupsd_status_shutdown_time{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_shutdown_time{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_shutdown_time_left Set when TimeLeft <= runtime.
 # TYPE apcupsd_status_shutdown_time_left gauge
-apcupsd_status_shutdown_time_left{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_shutdown_time_left{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_emergency_shutdown Set when battery power has failed.
 # TYPE apcupsd_status_emergency_shutdown gauge
-apcupsd_status_emergency_shutdown{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_emergency_shutdown{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_remote_shutdown Set when remote shutdown.
 # TYPE apcupsd_status_remote_shutdown gauge
-apcupsd_status_remote_shutdown{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_remote_shutdown{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_plugged_in Set if computer is plugged into UPS.
 # TYPE apcupsd_status_plugged_in gauge
-apcupsd_status_plugged_in{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_plugged_in{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_battery_present Indicates if battery is connected.
 # TYPE apcupsd_status_battery_present gauge
-apcupsd_status_battery_present{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_battery_present{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_low_battery_alarm_delayed Low battery alarm changed from 2 to 5 mins. Autostartup disabled on SU370ci and 400.
 # TYPE apcupsd_status_low_battery_alarm_delayed gauge
-apcupsd_status_low_battery_alarm_delayed{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_low_battery_alarm_delayed{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_audible_alarm_delayed Audible alarm delayed 30 seconds.
 # TYPE apcupsd_status_audible_alarm_delayed gauge
-apcupsd_status_audible_alarm_delayed{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_audible_alarm_delayed{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_output_transfer_voltage_changed Output transfer set to 115 VAC (from 120 VAC) or to 240 VAC (from 230 VAC).
 # TYPE apcupsd_status_output_transfer_voltage_changed gauge
-apcupsd_status_output_transfer_voltage_changed{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_output_transfer_voltage_changed{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_input_voltage_range_expanded UPS desensitized - input voltage range expanded.
 # TYPE apcupsd_status_input_voltage_range_expanded gauge
-apcupsd_status_input_voltage_range_expanded{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_input_voltage_range_expanded{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_output_unpowered_from_low_battery_shutdown Output unpowered due to shutdown by low battery.
 # TYPE apcupsd_status_output_unpowered_from_low_battery_shutdown gauge
-apcupsd_status_output_unpowered_from_low_battery_shutdown{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_output_unpowered_from_low_battery_shutdown{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_cannot_transfer_to_battery_due_to_overload Unable to transfer to battery due to overload.
 # TYPE apcupsd_status_cannot_transfer_to_battery_due_to_overload gauge
-apcupsd_status_cannot_transfer_to_battery_due_to_overload{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_cannot_transfer_to_battery_due_to_overload{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_ups_off_from_main_relay_failure Main relay malfunction - UPS turned off.
 # TYPE apcupsd_status_ups_off_from_main_relay_failure gauge
-apcupsd_status_ups_off_from_main_relay_failure{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_ups_off_from_main_relay_failure{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_sleep_mode_from_command In sleep mode from @ command (maybe others).
 # TYPE apcupsd_status_sleep_mode_from_command gauge
-apcupsd_status_sleep_mode_from_command{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_sleep_mode_from_command{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_shutdown_mode_from_command In shutdown mode from S command.
 # TYPE apcupsd_status_shutdown_mode_from_command gauge
-apcupsd_status_shutdown_mode_from_command{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_shutdown_mode_from_command{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_battery_charger_failure Battery charger failure.
 # TYPE apcupsd_status_battery_charger_failure gauge
-apcupsd_status_battery_charger_failure{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_battery_charger_failure{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_bypass_relay_failure Bypass relay malfunction.
 # TYPE apcupsd_status_bypass_relay_failure gauge
-apcupsd_status_bypass_relay_failure{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_bypass_relay_failure{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_status_operating_temperature_exceeded Normal operating temperature exceeded.
 # TYPE apcupsd_status_operating_temperature_exceeded gauge
-apcupsd_status_operating_temperature_exceeded{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
+apcupsd_status_operating_temperature_exceeded{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 0
 # HELP apcupsd_battery_last_replacement_timestamp_seconds Date battery last replaced.
 # TYPE apcupsd_battery_last_replacement_timestamp_seconds gauge
-apcupsd_battery_last_replacement_timestamp_seconds{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 894326400
+apcupsd_battery_last_replacement_timestamp_seconds{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 894326400
 # HELP apcupsd_battery_nominal_output_volts Nominal output voltage to supply when on battery power.
 # TYPE apcupsd_battery_nominal_output_volts gauge
-apcupsd_battery_nominal_output_volts{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 115
+apcupsd_battery_nominal_output_volts{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 115
 # HELP apcupsd_battery_nominal_volts Nominal battery voltage.
 # TYPE apcupsd_battery_nominal_volts gauge
-apcupsd_battery_nominal_volts{ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 24
+apcupsd_battery_nominal_volts{ups="ups0",ups_name="SU600",model="APC Smart-UPS 600",serial_number="13035861"} 24

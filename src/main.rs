@@ -14,7 +14,6 @@ use prometheus_exporter_base::{
 	prelude::{Authorization, ServerOptions, TlsOptions},
 	render_prometheus, MetricType, MissingValue, PrometheusInstance, PrometheusMetric,
 };
-use regex::Regex;
 use serde::Deserialize;
 use thiserror::Error;
 use tokio::{sync::Mutex, task::spawn_blocking};
@@ -41,7 +40,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	}
 	render_prometheus(server_options.into(), (), |_request, _| async move {
 		let mut rendered_result = String::new();
-		let compiled = Regex::new(r"(?m)^([^#])")?;
 		for (host_index, host) in copied_hosts.iter().enumerate() {
 			let current_host = &host.address;
 			let current_port = host.port;
@@ -56,9 +54,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 				Duration::from_secs(1),
 			);
 			let data = apc.fetch().await.map_err(|e| format!("error fetching data from apcupsd: {e}\n"))?;
-			let unprocessed_result = render_metrics(data)?;
-			let processed = compiled.replace_all(&unprocessed_result, format!("{}.$1", current_slug));
-			rendered_result.push_str(&processed)
+			let res = render_metrics(data, current_slug)?;
+			rendered_result.push_str(&res)
 		}
 		Ok(rendered_result)
 	})
@@ -128,10 +125,11 @@ fn prometheus_instance_with_labels<N: Num + std::fmt::Display + std::fmt::Debug>
 	instance
 }
 
-fn render_metrics(mut apcupsd_data: HashMap<String, String>) -> Result<String, RenderMetricsError> {
+fn render_metrics(mut apcupsd_data: HashMap<String, String>, slug: String) -> Result<String, RenderMetricsError> {
 	let mut rendered = String::new();
 
 	let mut labels = Vec::new();
+    labels.push(("ups".to_string(), slug));
 	let label_keys = [("UPSNAME", "ups_name"), ("MODEL", "model"), ("SERIALNO", "serial_number")];
 	for (key, label) in label_keys {
 		if let Some(val) = apcupsd_data.remove(key) {
@@ -963,7 +961,7 @@ mod tests {
 				snapshot_path => "../tests/snapshots",
 				snapshot_suffix => (|| Some([path.parent()?.file_name()?.to_str()?, path.file_name()?.to_str()?].join("/")))().ok_or("bad filename")?
 			},
-			{ Ok::<_, RenderMetricsError>(insta::assert_snapshot!(render_metrics(test_data)?)) }
+			{ Ok::<_, RenderMetricsError>(insta::assert_snapshot!(render_metrics(test_data, "ups0".to_string())?)) }
 		)?;
 		Ok(())
 	}

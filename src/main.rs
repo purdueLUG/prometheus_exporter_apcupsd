@@ -129,7 +129,7 @@ fn render_metrics(mut apcupsd_data: HashMap<String, String>, slug: String) -> Re
 	let mut rendered = String::new();
 
 	let mut labels = Vec::new();
-    labels.push(("ups".to_string(), slug));
+    labels.push(("exported_ups".to_string(), slug));
 	let label_keys = [("UPSNAME", "ups_name"), ("MODEL", "model"), ("SERIALNO", "serial_number")];
 	for (key, label) in label_keys {
 		if let Some(val) = apcupsd_data.remove(key) {

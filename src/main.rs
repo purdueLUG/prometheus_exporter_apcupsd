@@ -1,13 +1,12 @@
 use std::{
 	collections::HashMap,
-	fs,
+	env, fs,
 	net::SocketAddr,
 	ops::BitAnd,
 	sync::Arc,
 	time::{Duration, Instant},
 };
 
-use regex::Regex;
 use apcaccess::{APCAccess, APCAccessConfig};
 use chrono::{DateTime, NaiveDate, NaiveTime};
 use num::{Num, Unsigned};
@@ -15,20 +14,20 @@ use prometheus_exporter_base::{
 	prelude::{Authorization, ServerOptions, TlsOptions},
 	render_prometheus, MetricType, MissingValue, PrometheusInstance, PrometheusMetric,
 };
+use regex::Regex;
 use serde::Deserialize;
 use thiserror::Error;
 use tokio::{sync::Mutex, task::spawn_blocking};
 
 mod apcupsd_bitmasks;
 
-const CONFIG_PATH: &str = "/etc/prometheus/apcupsd_exporter_config.yaml";
-
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+	let config_path = env::var("CONFIG_PATH").unwrap_or("/etc/prometheus/apcupsd_exporter_config.yaml".to_owned());
 	let server_options = (|| -> Result<ApcupsdExporterOptions, Box<dyn std::error::Error>> {
-		if fs::exists(CONFIG_PATH)? {
+		if fs::exists(&config_path)? {
 			Ok(serde_ignored::deserialize(
-				serde_yaml::Deserializer::from_reader(fs::File::open(CONFIG_PATH)?),
+				serde_yaml::Deserializer::from_reader(fs::File::open(&config_path)?),
 				|path| eprintln!("Ignoring unknown configuration key {path}"),
 			)?)
 		} else {
@@ -43,12 +42,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	render_prometheus(server_options.into(), (), |_request, _| async move {
 		let mut rendered_result = String::new();
 		let compiled = Regex::new(r"(?m)^([^#])")?;
-//		println!("Hosts: {}", copied_hosts.len());
 		for (host_index, host) in copied_hosts.iter().enumerate() {
 			let current_host = &host.address;
 			let current_port = host.port;
 			let current_slug = host.slug.clone().unwrap_or_else(|| format!("apcupsd{}", host_index));
-//			println!("Accessing host {}/{}!", current_host, &current_slug);
 			let mut apc = APCThrottledAccess::new(
 				APCAccessConfig {
 					host: current_host.to_string(),
@@ -70,8 +67,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	Ok(())
 }
 
-#[derive(Clone)]
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize)]
 #[serde(default)]
 struct HostSpecificOptions {
 	address: String,
@@ -139,10 +135,7 @@ fn render_metrics(mut apcupsd_data: HashMap<String, String>) -> Result<String, R
 	let label_keys = [("UPSNAME", "ups_name"), ("MODEL", "model"), ("SERIALNO", "serial_number")];
 	for (key, label) in label_keys {
 		if let Some(val) = apcupsd_data.remove(key) {
-			labels.push((
-				label.to_string(),
-				val,
-			));
+			labels.push((label.to_string(), val));
 		}
 	}
 

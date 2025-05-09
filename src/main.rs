@@ -35,7 +35,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	})()?;
 
 	let mut copied_hosts = server_options.hosts.clone();
-	if copied_hosts.len() == 0 {
+	if copied_hosts.is_empty() {
 		copied_hosts = vec![HostSpecificOptions::default()]
 	}
 	render_prometheus(server_options.into(), (), |_request, _| async move {
@@ -129,7 +129,7 @@ fn render_metrics(mut apcupsd_data: HashMap<String, String>, slug: String) -> Re
 	let mut rendered = String::new();
 
 	let mut labels = Vec::new();
-    labels.push(("exported_ups".to_string(), slug));
+	labels.push(("exported_ups".to_string(), slug));
 	let label_keys = [("UPSNAME", "ups_name"), ("MODEL", "model"), ("SERIALNO", "serial_number")];
 	for (key, label) in label_keys {
 		if let Some(val) = apcupsd_data.remove(key) {
